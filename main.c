@@ -14,13 +14,15 @@
 
 int	main(int ac, char **av)
 {
-	int	i;
+	char	**nums;
+	int		i;
 
 	ft_printf("We have %d argumets.\n", ac - 1);
+	nums = ft_split(av[1], ' ');
 	i = 0;
-	while (ac > 1 && i < ac)
+	while (nums[i])
 	{
-		ft_printf("Arg N°%d:\n'%s'\n", ac, av[i]);
+		ft_printf("N°%d: %d\n", i+1, ft_atoi(nums[i]));
 		i++;
 	}
 }
