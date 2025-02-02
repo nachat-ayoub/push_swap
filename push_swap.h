@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:27:04 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/02 12:08:00 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/02 16:26:09 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 # include "./lib/libft/libft.h"
 # include "./lib/ft_printf/ft_printf.h"
 # include "./lib/get_next_line/get_next_line.h"
-# include "limits.h"
+# include <limits.h>
+# include <stdio.h>
 
 typedef struct s_node t_node;
 

@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:15:37 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/02 12:09:34 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/02 16:29:34 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ long	ft_atoi_long(char *str)
 			s = -1;
 		i++;
 	}
-	if (!ft_isdigit(str[i]))
-		return (LONG_MAX);
-	while (ft_isdigit(str[i]))
+	while (str[i])
 	{
+		if (!ft_isdigit(str[i]))
+			return (LONG_MAX);
 		nb = nb * 10 + (str[i] - '0');
 		if ((s == 1 && nb > INT_MAX) || (s == -1 && nb > -(long)INT_MIN))
 			return (LONG_MAX);

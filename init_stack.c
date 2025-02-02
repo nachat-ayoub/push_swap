@@ -6,17 +6,17 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:15:28 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/02 12:28:21 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/02 16:52:57 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*find_last(t_node *head)
+t_node	*find_last(t_node *stack)
 {
 	t_node *curr;
 
-	curr = head;
+	curr = stack;
 	while(curr->next)
 		curr = curr->next;
 	return (curr);
@@ -61,7 +61,6 @@ int	init_stack(t_node **a, char **args)
 		while (nums[j])
 		{
 			nb = ft_atoi_long(nums[j]);
-			ft_printf("[nb] = %d\n", nb);
 			if (nb == LONG_MAX)
 				return (free_2d_arr((void **)nums), 0);
 			append_node(a, (int)nb);
