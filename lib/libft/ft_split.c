@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 10:39:43 by anachat           #+#    #+#             */
-/*   Updated: 2024/11/09 19:45:07 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/02 12:26:47 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,19 @@ static char	**fill_array(char **arr, const char *s, char c)
 	return (arr);
 }
 
+#include <stdio.h>
+
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
+	int		count;
 
 	if (!s)
 		return (NULL);
-	arr = ft_calloc((count_words(s, c) + 1), sizeof(char *));
+	count = count_words(s, c);
+	if (!count)
+		return (NULL);
+	arr = ft_calloc((count + 1), sizeof(char *));
 	if (!arr)
 		return (NULL);
 	return (fill_array(arr, s, c));

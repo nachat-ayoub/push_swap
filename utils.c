@@ -1,0 +1,95 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/30 10:15:37 by anachat           #+#    #+#             */
+/*   Updated: 2025/02/02 12:09:34 by anachat          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	exit_program()
+{
+	ft_putstr_fd("Error\n", 2);
+}
+
+long	ft_atoi_long(char *str)
+{
+	int		i;
+	int		s;
+	long	nb;
+
+	i = 0;
+	s = 1;
+	nb = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ' || str[i] == '\t')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			s = -1;
+		i++;
+	}
+	if (!ft_isdigit(str[i]))
+		return (LONG_MAX);
+	while (ft_isdigit(str[i]))
+	{
+		nb = nb * 10 + (str[i] - '0');
+		if ((s == 1 && nb > INT_MAX) || (s == -1 && nb > -(long)INT_MIN))
+			return (LONG_MAX);
+		i++;
+	}
+	return (nb * s);
+}
+
+void	free_stack(t_node **stack)
+{
+	t_node *current;
+
+	current = *stack;
+	while (current)
+	{
+		free(current);
+		current = current->next;
+	}
+	free(current);
+}
+
+void free_2d_arr(void **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		arr[i] = NULL;
+		i++;
+	}
+	free(arr);
+	arr = NULL;
+}
+
+int	has_duplicated(t_node *stack)
+{
+	t_node	*curr_i;
+	t_node	*curr_j;
+
+	curr_i = stack;
+	while (curr_i)
+	{
+		curr_j = curr_i->next;
+		while (curr_j)
+		{
+			if (curr_i->nbr == curr_j->nbr)
+				return (1);
+			curr_j = curr_j->next;
+		}
+		curr_i = curr_i->next;
+	}
+	return (0);
+}
