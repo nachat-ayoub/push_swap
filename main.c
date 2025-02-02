@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:29:13 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/02 16:57:04 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/02 17:36:27 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,6 @@ void print_list(t_node *head)
 			ft_printf("-> ");
 	}
 	ft_printf("\n");
-}
-
-int is_sorted(t_node **stack)
-{
-	t_node *curr;
-
-	curr = *stack;
-	while (curr)
-	{
-		if (curr->next && curr->nbr > curr->next->nbr)
-			return (0);
-		curr = curr->next;
-	}
-	return (1);
 }
 
 int	main(int ac, char **av)
