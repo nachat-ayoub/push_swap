@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:29:13 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/02 17:36:27 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/04 12:31:14 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,20 @@ t_node *generate_list()
 // Function to print the doubly linked list
 void print_list(t_node *head)
 {
-	t_node *current = head;
-	ft_printf("\nForward traversal:\n");
-	while (current != NULL) {
-		ft_printf("%d ", current->nbr);
-		current = current->next;
-		if (current)
-			ft_printf("-> ");
+	t_node *curr = head;
+	ft_printf("\nNode List:\n");
+	while (curr != NULL) {
+		ft_printf(RED "[i: %d] " RESET, curr->index);
+		ft_printf("n: %d\n", curr->nbr);
+		curr = curr->next;
 	}
-	ft_printf("\n");
 }
 
 int	main(int ac, char **av)
 {
 	t_node	*a;
 	t_node	*b;
+	int		size;
 
 	(void)a;
 	(void)b;
@@ -70,6 +69,17 @@ int	main(int ac, char **av)
 		return (exit_program(), 1);
 	if (init_stack(&a, av + 1) == 0 || has_duplicated(a))
 		return (free_stack(&a), exit_program(), 1);
-	if (is_sorted(&a))
+	if (!is_sorted(&a))
+	{
+		size = lstsize(a);
+		if (size == 3)
+			sort_three(&a);
+		else if (size == 4)
+			sort_four(&a, &b);
+		// else if (size == 5)
+		// 	sort_five(&a, &b);
+		// else
+		// 	sort_algo(&a, &b);
+	}
 	print_list(a);
 }
