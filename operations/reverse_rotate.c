@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 void rra(t_node **a, int log_instr)
 {
 	t_node	*first;
@@ -22,13 +21,9 @@ void rra(t_node **a, int log_instr)
 		return ;
 	first = *a;
 	last = find_last(*a);
-	before_last = last->prev;
+	before_last = find_before_last(*a);
 
-	first->prev = last;
-	
 	last->next = first;
-	last->prev = NULL;
-
 	before_last->next = NULL;
 
 	*a = last;
@@ -46,13 +41,9 @@ void rrb(t_node **b, int log_instr)
 		return ;
 	first = *b;
 	last = find_last(*b);
-	before_last = last->prev;
+	before_last = find_before_last(*b);
 
-	first->prev = last;
-	
 	last->next = first;
-	last->prev = NULL;
-
 	before_last->next = NULL;
 
 	*b = last;

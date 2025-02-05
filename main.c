@@ -100,7 +100,7 @@ int	main(int ac, char **av)
 	t_node	*b;
 	int		size;
 
-	(void)a;
+	a = NULL;
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (exit_program(), 1);
@@ -109,6 +109,12 @@ int	main(int ac, char **av)
 	if (!is_sorted(&a))
 	{
 		size = lstsize(a);
+		// print stack size and stacks:
+		ft_printf(YELLOW "\n=============[ Stack Size ]=============" RESET);
+		ft_printf("\nSize: %d\n", size);
+		ft_printf(YELLOW "\n=============[ Original List ]=============" RESET);
+		ft_index(a);
+		print_stacks(a, b);
 		if (size == 3)
 			sort_three(&a);
 		else if (size == 4)
@@ -121,5 +127,4 @@ int	main(int ac, char **av)
 	// ft_printf(YELLOW "\n=============[ Sorted List ]=============" RESET);
 	// ft_index(a);
 	// print_stacks(a, b);
-	
 }

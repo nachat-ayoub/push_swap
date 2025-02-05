@@ -12,27 +12,24 @@
 
 #include "push_swap.h"
 
-t_node	*find_last(t_node *stack)
+t_node *find_last(t_node *stack)
 {
-	t_node *curr;
-
-	curr = stack;
-	while(curr->next)
-		curr = curr->next;
-	return (curr);
+	while (stack && stack->next)
+		stack = stack->next;
+	return stack;
 }
 
-static void	append_node(t_node **stack, int nbr)
+static void append_node(t_node **stack, int nbr)
 {
 	t_node *node;
 	t_node *last_node;
 
 	if (!stack) // exit
-		return ;
+		return;
 	node = malloc(sizeof(t_node));
 	ft_memset(node, 0, sizeof(t_node));
 	if (!node)
-		return ;
+		return;
 	node->nbr = nbr;
 	if (!*stack) // list is empty (first node to add will be head)
 		*stack = node;
@@ -44,12 +41,12 @@ static void	append_node(t_node **stack, int nbr)
 	}
 }
 
-int	init_stack(t_node **a, char **args)
+int init_stack(t_node **a, char **args)
 {
-	char	**nums;
-	long	nb;
-	int		i;
-	int		j;
+	char **nums;
+	long nb;
+	int i;
+	int j;
 
 	i = 0;
 	while (args[i])

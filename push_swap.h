@@ -35,12 +35,7 @@ struct s_node
 {
 	int		nbr;
 	int		index;
-	int		push_cost;
-	int		above_median;
-	int		cheapest;
-	t_node	*target_node;
 	t_node	*next;
-	t_node	*prev;
 };
 
 void	exit_program();

@@ -81,7 +81,7 @@ void	free_stack(t_node **stack)
 		free(current);
 		current = next;
 	}
-	*stack = NULL;
+	// *stack = NULL;
 }
 
 void free_2d_arr(void **arr)

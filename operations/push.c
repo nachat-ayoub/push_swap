@@ -11,37 +11,28 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	pa(t_node **a, t_node **b)
+void pa(t_node **a, t_node **b)
 {
-	t_node	*bhead;
+	t_node *bhead;
 
 	if (!b || !*b)
-		return ;
+		return;
 	bhead = *b;
 	*b = (*b)->next;
-	if (*b)
-		(*b)->prev = NULL;
 	bhead->next = *a;
-	if (*a)
-		(*a)->prev = bhead;
 	*a = bhead;
 	ft_printf("pa\n");
 }
 
-void	pb(t_node **a, t_node **b)
+void pb(t_node **a, t_node **b)
 {
-	t_node	*ahead;
+	t_node *ahead;
 
 	if (!a || !*a)
-		return ;
+		return;
 	ahead = *a;
 	*a = (*a)->next;
-	if (*a)
-		(*a)->prev = NULL;
 	ahead->next = *b;
-	if (*b)
-		(*b)->prev = ahead;
 	*b = ahead;
 	ft_printf("pb\n");
 }

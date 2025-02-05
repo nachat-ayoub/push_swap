@@ -17,6 +17,8 @@ void ft_index(t_node *s)
 	t_node *curr_i;
 	t_node *curr_j;
 
+	if (!s)
+		return ;
 	curr_i = s;
 	while (curr_i)
 	{
@@ -66,6 +68,7 @@ int get_max_pos(t_node *stack)
 	int pos = 0;
 	int max_pos = 0;
 	int idx = 0;
+	ft_index(stack);
 
 	while (stack)
 	{
