@@ -16,15 +16,14 @@ void	exit_program()
 {
 	ft_putstr_fd("Error\n", 2);
 }
+
 int	is_valid_nb(char *str)
 {
 	int		i;
-	long	nb;
 
 	if (!str)
 		return (0);
 	i = 0;
-	nb = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ' || str[i] == '\t')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -73,14 +72,16 @@ long	ft_atoi_long(char *str)
 void	free_stack(t_node **stack)
 {
 	t_node *current;
+	t_node *next;
 
 	current = *stack;
 	while (current)
 	{
+		next = current->next;
 		free(current);
-		current = current->next;
+		current = next;
 	}
-	free(current);
+	*stack = NULL;
 }
 
 void free_2d_arr(void **arr)
