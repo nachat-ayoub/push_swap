@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:49:57 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/04 12:37:49 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/04 16:37:10 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,33 @@ int	lstsize(t_node *lst)
 
 int	get_pos(t_node *stack, int index)
 {
-    int pos = 0;
+	int pos = 0;
 
-    while (stack)
-    {
-        if (stack->index == index)
-            break ;
-        stack = stack->next;
-        pos++;
-    }
-    return (pos);
+	while (stack)
+	{
+		if (stack->index == index)
+			break ;
+		stack = stack->next;
+		pos++;
+	}
+	return (pos);
+}
+
+int get_max_pos(t_node *stack)
+{
+	int pos = 0;
+	int max_pos = 0;
+	int idx = 0;
+
+	while (stack)
+	{
+		if (stack->index > idx)
+		{
+			idx = stack->index;
+			max_pos = pos;
+		}
+		stack = stack->next;
+		pos++;
+	}
+	return (max_pos);
 }

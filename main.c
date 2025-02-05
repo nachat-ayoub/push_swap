@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:29:13 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/04 12:31:14 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/05 09:03:53 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,49 @@ t_node *generate_list()
 void print_list(t_node *head)
 {
 	t_node *curr = head;
-	ft_printf("\nNode List:\n");
+	ft_printf(PURPLE "\n====> Node List:\n" RESET);
 	while (curr != NULL) {
 		ft_printf(RED "[i: %d] " RESET, curr->index);
 		ft_printf("n: %d\n", curr->nbr);
 		curr = curr->next;
 	}
+}
+
+
+
+void print_stacks(t_node *a, t_node *b)
+{
+    int pos = 0;
+    ft_printf(YELLOW "\n=========================================\n" RESET);
+    ft_printf(YELLOW "Stack A                   Stack B\n" RESET);
+    ft_printf(PURPLE "pos  idx  num          pos  idx  num\n" RESET);
+    while (a || b)
+    {
+        if (a)
+		{
+            ft_printf(DIM_YELLOW "[%d]" RESET, pos);
+            ft_printf("  %d    ", a->index);
+            ft_printf(DIM_RED "%d  " RESET, a->nbr);
+		}
+        else
+            ft_printf("             ");
+        
+        ft_printf("          ");
+        
+        if (b)
+		{
+            ft_printf(DIM_YELLOW "[%d]" RESET, pos);
+            ft_printf("  %d    ", b->index);
+            ft_printf(DIM_RED "%d" RESET, b->nbr);
+		}
+        
+        ft_printf("\n");
+        
+        if (a) a = a->next;
+        if (b) b = b->next;
+        pos++;
+    }
+    ft_printf(YELLOW "=========================================\n\n" RESET);
 }
 
 int	main(int ac, char **av)
@@ -64,7 +101,7 @@ int	main(int ac, char **av)
 	int		size;
 
 	(void)a;
-	(void)b;
+	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (exit_program(), 1);
 	if (init_stack(&a, av + 1) == 0 || has_duplicated(a))
@@ -76,10 +113,13 @@ int	main(int ac, char **av)
 			sort_three(&a);
 		else if (size == 4)
 			sort_four(&a, &b);
-		// else if (size == 5)
-		// 	sort_five(&a, &b);
-		// else
-		// 	sort_algo(&a, &b);
+		else if (size == 5)
+			sort_five(&a, &b);
+		else
+			sort_algo(&a, &b);
 	}
-	print_list(a);
+	// ft_printf(YELLOW "\n=============[ Sorted List ]=============" RESET);
+	// ft_index(a);
+	// print_stacks(a, b);
+	
 }

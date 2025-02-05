@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:15:37 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/02 16:29:34 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/04 17:11:06 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,30 @@ void	exit_program()
 {
 	ft_putstr_fd("Error\n", 2);
 }
+int	is_valid_nb(char *str)
+{
+	int		i;
+	long	nb;
+
+	if (!str)
+		return (0);
+	i = 0;
+	nb = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ' || str[i] == '\t')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (!ft_isdigit(str[++i]))
+			return (0);
+	}
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 long	ft_atoi_long(char *str)
 {
@@ -23,6 +47,8 @@ long	ft_atoi_long(char *str)
 	int		s;
 	long	nb;
 
+	if (!is_valid_nb(str))
+		return (LONG_MAX);
 	i = 0;
 	s = 1;
 	nb = 0;
@@ -36,8 +62,6 @@ long	ft_atoi_long(char *str)
 	}
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]))
-			return (LONG_MAX);
 		nb = nb * 10 + (str[i] - '0');
 		if ((s == 1 && nb > INT_MAX) || (s == -1 && nb > -(long)INT_MIN))
 			return (LONG_MAX);

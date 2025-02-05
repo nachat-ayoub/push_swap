@@ -6,13 +6,13 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:29:20 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/04 12:52:26 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/04 16:50:55 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_sorted(t_node **stack)
+int	is_sorted(t_node **stack)
 {
 	t_node *curr;
 
@@ -26,7 +26,7 @@ int is_sorted(t_node **stack)
 	return (1);
 }
 
-void sort_three(t_node **stack)
+void	sort_three(t_node **stack)
 {
 	t_node *first;
 	t_node *second;
@@ -45,7 +45,7 @@ void sort_three(t_node **stack)
 		sa(stack, 1);
 }
 
-void sort_four(t_node **a, t_node **b)
+void	sort_four(t_node **a, t_node **b)
 {
 	int	pos;
 
@@ -63,5 +63,69 @@ void sort_four(t_node **a, t_node **b)
 	pa(a, b);
 }
 
+void	sort_five(t_node **a, t_node **b)
+{
+	int	pos;
 
-void sort_five(t_node **a, t_node **b);
+	ft_index(*a);
+	pos = get_pos(*a, 0);	
+	while ((*a)->index != 0)
+	{
+		if (pos < 2)
+			ra(a, 1);
+		else
+			rra(a, 1);
+	}
+	pb(a, b);
+	sort_four(a, b);
+	pa(a, b);
+}
+
+void	sort_algo(t_node **a, t_node **b)
+{
+	int	i;
+	int	size;
+	int	range;
+
+	ft_index(*a);
+	size = lstsize(*a);
+	if (size > 100)
+		range = 33;
+	else
+		range = 16;
+	i = 0;
+	while (size)
+	{
+		if ((*a)->index <= i)
+		{
+			pb(a, b);
+			i++;
+		}
+		else if ((*a)->index <= (i + range))
+		{
+			pb(a, b);
+			rb(b, 1);
+			i++;
+		}
+		else
+			rra(a, 1);
+		// print_stacks(*a, *b);
+		size--;
+	}
+	int max_pos;
+	while (*b)
+	{
+		max_pos = get_max_pos(*b);
+		if (max_pos == 0)
+			pa(a, b);
+		else
+		{
+			size = lstsize(*b);
+			if (max_pos <= (size / 2))
+				rb(b, 1);
+			else
+				rrb(b, 1);
+		}
+		// print_stacks(*a, *b);
+	}
+}
