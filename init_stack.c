@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:15:28 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/06 13:06:31 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:23:01 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 
 t_node	*find_last(t_node *stack)
 {
-	t_node *curr;
+	t_node	*curr;
 
 	curr = stack;
-	while(curr->next)
+	while (curr->next)
 		curr = curr->next;
 	return (curr);
 }
 
 static int	append_node(t_node **stack, int nbr)
 {
-	t_node *node;
-	t_node *last_node;
+	t_node	*node;
+	t_node	*last_node;
 
-	if (!stack) // exit
-		return 0;
+	if (!stack)
+		return (0);
 	node = malloc(sizeof(t_node));
 	ft_memset(node, 0, sizeof(t_node));
 	if (!node)
-		return 0;
+		return (0);
 	node->nbr = nbr;
-	if (!*stack) // list is empty (first node to add will be head)
+	if (!*stack)
 		*stack = node;
 	else
-	{ // put the node at the end
+	{
 		last_node = find_last(*stack);
 		last_node->next = node;
 		node->prev = last_node;
 	}
-	return 1;
+	return (1);
 }
 
 int	init_stack(t_node **a, char **args)

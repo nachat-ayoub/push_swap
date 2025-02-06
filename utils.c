@@ -6,13 +6,13 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:15:37 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/06 13:00:40 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:29:10 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	exit_program()
+void	exit_program(void)
 {
 	ft_putstr_fd("Error\n", 2);
 }
@@ -68,38 +68,6 @@ long	ft_atoi_long(char *str)
 	}
 	return (nb * s);
 }
-void	free_stack(t_node **stack)
-{
-	t_node *current;
-	t_node *next;
-
-	if (!stack || !*stack)
-		return;
-
-	current = *stack;
-	while (current)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	*stack = NULL;
-}
-
-void free_2d_arr(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		arr[i] = NULL;
-		i++;
-	}
-	free(arr);
-	arr = NULL;
-}
 
 int	has_duplicated(t_node *stack)
 {
@@ -119,4 +87,19 @@ int	has_duplicated(t_node *stack)
 		curr_i = curr_i->next;
 	}
 	return (0);
+}
+
+void	free_2d_arr(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		arr[i] = NULL;
+		i++;
+	}
+	free(arr);
+	arr = NULL;
 }

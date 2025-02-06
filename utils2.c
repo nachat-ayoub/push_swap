@@ -6,16 +6,16 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:49:57 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/04 16:37:10 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:30:22 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_index(t_node *s)
+void	ft_index(t_node *s)
 {
-	t_node *curr_i;
-	t_node *curr_j;
+	t_node	*curr_i;
+	t_node	*curr_j;
 
 	curr_i = s;
 	while (curr_i)
@@ -49,8 +49,9 @@ int	lstsize(t_node *lst)
 
 int	get_pos(t_node *stack, int index)
 {
-	int pos = 0;
+	int	pos;
 
+	pos = 0;
 	while (stack)
 	{
 		if (stack->index == index)
@@ -61,12 +62,15 @@ int	get_pos(t_node *stack, int index)
 	return (pos);
 }
 
-int get_max_pos(t_node *stack)
+int	get_max_pos(t_node *stack)
 {
-	int pos = 0;
-	int max_pos = 0;
-	int idx = 0;
+	int	max_pos;
+	int	pos;
+	int	idx;
 
+	max_pos = 0;
+	pos = 0;
+	idx = 0;
 	while (stack)
 	{
 		if (stack->index > idx)
@@ -78,4 +82,21 @@ int get_max_pos(t_node *stack)
 		pos++;
 	}
 	return (max_pos);
+}
+
+void	free_stack(t_node **stack)
+{
+	t_node	*current;
+	t_node	*next;
+
+	if (!stack || !*stack)
+		return ;
+	current = *stack;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	*stack = NULL;
 }

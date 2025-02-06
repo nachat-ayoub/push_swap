@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:27:04 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/06 12:38:36 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:48:57 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define PURPLE  "\033[38;5;129m"
 # define RESET "\033[0m"
 
-typedef struct s_node t_node;
+typedef struct s_node	t_node;
 
 struct s_node
 {
@@ -43,14 +43,14 @@ struct s_node
 	t_node	*prev;
 };
 
-void	exit_program();
+void	exit_program(void);
 int		init_stack(t_node **a, char **nums);
 t_node	*find_last(t_node *head);
 long	ft_atoi_long(char *str);
 void	free_2d_arr(char **arr);
 void	free_stack(t_node **stack);
 int		has_duplicated(t_node *stack);
-int 	is_sorted(t_node **stack);
+int		is_sorted(t_node **stack);
 void	ft_index(t_node *s);
 int		lstsize(t_node *lst);
 int		get_pos(t_node *stack, int index);
@@ -75,10 +75,6 @@ void	rr(t_node **a, t_node **b);
 void	rra(t_node **a, int log_instr);
 void	rrb(t_node **b, int log_instr);
 void	rrr(t_node **a, t_node **b);
-
-
-
-void print_list(t_node *head);
-void	print_stacks(t_node *a, t_node *b);
+// void	print_stacks(t_node *a, t_node *b);
 
 #endif

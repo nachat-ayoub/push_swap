@@ -6,13 +6,13 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:14:04 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/01 19:30:21 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:31:46 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void sa(t_node **a, int log_instr)
+void	sa(t_node **a, int log_instr)
 {
 	t_node	*first;
 	t_node	*second;
@@ -32,7 +32,7 @@ void sa(t_node **a, int log_instr)
 		ft_printf("sa\n");
 }
 
-void sb(t_node **b, int log_instr)
+void	sb(t_node **b, int log_instr)
 {
 	t_node	*first;
 	t_node	*second;
@@ -52,7 +52,7 @@ void sb(t_node **b, int log_instr)
 		ft_printf("sb\n");
 }
 
-void ss(t_node **a, t_node **b)
+void	ss(t_node **a, t_node **b)
 {
 	if (!a || !*a || !(*a)->next || !b || !*b || !(*b)->next)
 		return ;

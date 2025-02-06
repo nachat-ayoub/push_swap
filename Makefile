@@ -6,7 +6,7 @@
 #    By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 18:26:53 by anachat           #+#    #+#              #
-#    Updated: 2025/02/04 12:18:40 by anachat          ###   ########.fr        #
+#    Updated: 2025/02/06 14:44:07 by anachat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ GNL_SRCS    =   $(GNL_DIR)/get_next_line.c $(GNL_DIR)/get_next_line_utils.c
 
 SRCS        =   $(GNL_SRCS) init_stack.c main.c utils.c utils2.c operations/push.c \
 				operations/reverse_rotate.c operations/rotate.c \
-				operations/swap.c sorting.c
+				operations/swap.c sorting.c sort_algo.c
 OBJS        =   $(SRCS:.c=.o)
 
 all	 : $(LIBFT_DIR) $(PRINTF_DIR) $(NAME)

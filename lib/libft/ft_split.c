@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 10:39:43 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/02 12:26:47 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:32:42 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,6 @@ static char	**fill_array(char **arr, const char *s, char c)
 	}
 	return (arr);
 }
-
-#include <stdio.h>
 
 char	**ft_split(char const *s, char c)
 {
