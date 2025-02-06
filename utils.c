@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:15:37 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/04 17:11:06 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 13:00:40 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,13 @@ long	ft_atoi_long(char *str)
 	}
 	return (nb * s);
 }
-
 void	free_stack(t_node **stack)
 {
 	t_node *current;
 	t_node *next;
+
+	if (!stack || !*stack)
+		return;
 
 	current = *stack;
 	while (current)
@@ -84,7 +86,7 @@ void	free_stack(t_node **stack)
 	*stack = NULL;
 }
 
-void free_2d_arr(void **arr)
+void free_2d_arr(char **arr)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:27:04 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/04 16:42:29 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 12:38:36 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	exit_program();
 int		init_stack(t_node **a, char **nums);
 t_node	*find_last(t_node *head);
 long	ft_atoi_long(char *str);
-void	free_2d_arr(void **arr);
+void	free_2d_arr(char **arr);
 void	free_stack(t_node **stack);
 int		has_duplicated(t_node *stack);
 int 	is_sorted(t_node **stack);

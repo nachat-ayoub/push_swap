@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:29:13 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/05 09:03:53 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 13:08:27 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,17 +94,23 @@ void print_stacks(t_node *a, t_node *b)
     ft_printf(YELLOW "=========================================\n\n" RESET);
 }
 
+
+void f()
+{
+	system("leaks push_swap");
+}
+
 int	main(int ac, char **av)
 {
 	t_node	*a;
 	t_node	*b;
 	int		size;
 
-	(void)a;
+	atexit(f);
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (exit_program(), 1);
-	if (init_stack(&a, av + 1) == 0 || has_duplicated(a))
+	if (!init_stack(&a, av + 1)|| has_duplicated(a))
 		return (free_stack(&a), exit_program(), 1);
 	if (!is_sorted(&a))
 	{
@@ -118,6 +124,7 @@ int	main(int ac, char **av)
 		else
 			sort_algo(&a, &b);
 	}
+	free_stack(&a);
 	// ft_printf(YELLOW "\n=============[ Sorted List ]=============" RESET);
 	// ft_index(a);
 	// print_stacks(a, b);
