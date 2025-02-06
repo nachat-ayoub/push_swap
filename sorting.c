@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:29:20 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/04 16:50:55 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 10:39:05 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,17 +100,18 @@ void	sort_algo(t_node **a, t_node **b)
 		{
 			pb(a, b);
 			i++;
+			size--;
 		}
 		else if ((*a)->index <= (i + range))
 		{
 			pb(a, b);
 			rb(b, 1);
 			i++;
+			size--;
 		}
 		else
 			rra(a, 1);
 		// print_stacks(*a, *b);
-		size--;
 	}
 	int max_pos;
 	while (*b)
