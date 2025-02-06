@@ -8,6 +8,7 @@ RED = "\033[31m"
 GREEN = "\033[32m"
 BLUE = "\033[34m"
 YELLOW = "\033[33m"
+PURPLE = "\033[35m"
 RESET = "\033[0m"
 
 # INT_MIN = -2147483648
@@ -104,10 +105,11 @@ def main():
 				print(f"{RED}./push_swap Error{RESET}")
 
 		avg_instructions = total_instructions / tries
-		print(f"\n\n{BLUE}Average instructions   : {avg_instructions:.2f}{RESET}")
-		print(f"{GREEN}Min instructions      : {min_instructions}{RESET}")
-		print(f"{RED}Max instructions      : {max_instructions}{RESET}")
-		print(f"{YELLOW}Passed tests         : {GREEN}{passed_tests}{RESET}/{tries} ({(passed_tests/tries)*100:.2f}%){RESET}")
+		print(f"\n\n{PURPLE}Stack Size		: {size} node{RESET}")
+		print(f"{BLUE}Average instructions	: {avg_instructions:.2f}{RESET}")
+		print(f"{GREEN}Min instructions	: {min_instructions}{RESET}")
+		print(f"{RED}Max instructions	: {max_instructions}{RESET}")
+		print(f"{YELLOW}Passed tests		: {GREEN}{passed_tests}{RESET}/{tries} ({(passed_tests/tries)*100:.0f}%){RESET}")
 	else:
 		print(f"{RED}Please Provide Enough Arguments{RESET}")
 

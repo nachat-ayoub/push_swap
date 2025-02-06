@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:29:20 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/06 10:39:05 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 11:50:30 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ void	sort_algo(t_node **a, t_node **b)
 		}
 		else
 			rra(a, 1);
-		// print_stacks(*a, *b);
 	}
 	int max_pos;
 	while (*b)
