@@ -6,7 +6,7 @@
 #    By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 18:26:53 by anachat           #+#    #+#              #
-#    Updated: 2025/02/06 15:02:55 by anachat          ###   ########.fr        #
+#    Updated: 2025/02/06 17:32:48 by anachat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ PRINTF_LIB  =   $(PRINTF_DIR)/libftprintf.a
 
 GNL_SRCS    =   $(GNL_DIR)/get_next_line.c $(GNL_DIR)/get_next_line_utils.c
 
-SRCS        =   $(GNL_SRCS) mandatory/init_stack.c mandatory/main.c mandatory/utils.c \
+SRCS        =   $(GNL_SRCS) mandatory/init_stack.c mandatory/push_swap.c mandatory/utils.c \
 				mandatory/utils2.c mandatory/operations/push.c mandatory/operations/rotate.c \
 				mandatory/operations/reverse_rotate.c mandatory/operations/swap.c \
 				mandatory/sorting.c mandatory/sort_algo.c
