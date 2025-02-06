@@ -6,20 +6,40 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:36:27 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/06 14:46:12 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 15:53:52 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	detect_comb(t_node *a, int size)
+{
+	int    diff;
+	int    count;
+
+	count = 0;
+	while (a && a->next)
+	{
+		diff = a->index - a->next->index;
+		if (diff == 2 || diff == 3 || diff == 4)
+			count++;
+		a = a->next;
+	}
+	if (count * 10 >= size * 6)
+		return (1);
+	return (0);
+}
+
 static void	semi_sort(t_node **a, t_node **b, int size)
 {
 	int	range;
+	int	is_comb;
 	int	i;
 
 	range = 16;
 	if (size > 100)
 		range = 33;
+	is_comb = detect_comb(*a, size);
 	i = 0;
 	while (i < size)
 	{
@@ -35,7 +55,12 @@ static void	semi_sort(t_node **a, t_node **b, int size)
 			i++;
 		}
 		else
-			rra(a, 1);
+		{
+			if (!is_comb)
+				ra(a, 1);
+			else
+				rra(a, 1);
+		}
 	}
 }
 

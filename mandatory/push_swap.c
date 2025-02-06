@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:29:13 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/06 14:20:43 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:36:29 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,32 @@
 
 // void print_stacks(t_node *a, t_node *b)
 // {
-//     int pos = 0;
-//     ft_printf(YELLOW "\n=========================================\n" RESET);
-//     ft_printf(YELLOW "Stack A                   Stack B\n" RESET);
-//     ft_printf(PURPLE "pos  idx  num          pos  idx  num\n" RESET);
-//     while (a || b)
-//     {
-//         if (a)
+// 	int pos = 0;
+// 	ft_printf(YELLOW "\n=========================================\n" RESET);
+// 	ft_printf(YELLOW "Stack A                   Stack B\n" RESET);
+// 	ft_printf(PURPLE "pos  idx  num          pos  idx  num\n" RESET);
+// 	while (a || b)
+// 	{
+// 		if (a)
 // 		{
-//             ft_printf(DIM_YELLOW "[%d]" RESET, pos);
-//             ft_printf("  %d    ", a->index);
-//             ft_printf(DIM_RED "%d            " RESET, a->nbr);
+// 			ft_printf(DIM_YELLOW "[%d]" RESET, pos);
+// 			ft_printf("  %d    ", a->index);
+// 			ft_printf(DIM_RED "%d            " RESET, a->nbr);
 // 		}
-//         else
-//             ft_printf("                       ");
-//         if (b)
+// 		else
+// 			ft_printf("                       ");
+// 		if (b)
 // 		{
-//             ft_printf(DIM_YELLOW "[%d]" RESET, pos);
-//             ft_printf("  %d    ", b->index);
-//             ft_printf(DIM_RED "%d" RESET, b->nbr);
+// 			ft_printf(DIM_YELLOW "[%d]" RESET, pos);
+// 			ft_printf("  %d    ", b->index);
+// 			ft_printf(DIM_RED "%d" RESET, b->nbr);
 // 		}
-//         ft_printf("\n");
-//         if (a) a = a->next;
-//         if (b) b = b->next;
-//         pos++;
-//     }
-//     ft_printf(YELLOW "=========================================\n\n" RESET);
+// 		ft_printf("\n");
+// 		if (a) a = a->next;
+// 		if (b) b = b->next;
+// 		pos++;
+// 	}
+// 	ft_printf(YELLOW "=========================================\n\n" RESET);
 // }
 
 int	main(int ac, char **av)

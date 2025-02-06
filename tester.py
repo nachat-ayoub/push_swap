@@ -11,10 +11,10 @@ YELLOW = "\033[33m"
 PURPLE = "\033[35m"
 RESET = "\033[0m"
 
-# INT_MIN = -2147483648
-# INT_MAX = 2147483647
-INT_MIN = 0
-INT_MAX = 1000
+INT_MIN = -2147483648
+INT_MAX = 2147483647
+# INT_MIN = 0
+# INT_MAX = 1000
 
 def generate_unique_numbers(size):
 	return random.sample(range(INT_MIN, INT_MAX), size)
