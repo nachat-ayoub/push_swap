@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:36:27 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/06 15:53:52 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/07 18:17:02 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	detect_comb(t_node *a, int size)
 {
-	int    diff;
-	int    count;
+	int	diff;
+	int	count;
 
 	count = 0;
 	while (a && a->next)
@@ -30,15 +30,21 @@ static int	detect_comb(t_node *a, int size)
 	return (0);
 }
 
+static int	get_range(int size)
+{
+	if (size > 100)
+		return (33);
+	else
+		return (16);
+}
+
 static void	semi_sort(t_node **a, t_node **b, int size)
 {
-	int	range;
 	int	is_comb;
+	int	range;
 	int	i;
 
-	range = 16;
-	if (size > 100)
-		range = 33;
+	range = get_range(size);
 	is_comb = detect_comb(*a, size);
 	i = 0;
 	while (i < size)
@@ -54,13 +60,10 @@ static void	semi_sort(t_node **a, t_node **b, int size)
 			rb(b, 1);
 			i++;
 		}
+		else if (is_comb)
+			rra(a, 1);
 		else
-		{
-			if (!is_comb)
-				ra(a, 1);
-			else
-				rra(a, 1);
-		}
+			ra(a, 1);
 	}
 }
 

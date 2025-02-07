@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:15:37 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/07 16:14:43 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/07 18:16:27 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-void	exit_program(void)
+void	free_stack(t_node **stack)
 {
-	ft_putstr_fd("Error\n", 2);
+	t_node	*current;
+	t_node	*next;
+
+	if (!stack || !*stack)
+		return ;
+	current = *stack;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	*stack = NULL;
 }
 
 void	free_2d_arr(char **arr)

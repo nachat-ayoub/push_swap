@@ -6,7 +6,7 @@
 #    By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 18:26:53 by anachat           #+#    #+#              #
-#    Updated: 2025/02/06 17:58:55 by anachat          ###   ########.fr        #
+#    Updated: 2025/02/07 20:34:08 by anachat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCS        =   $(GNL_SRCS) mandatory/init_stack.c mandatory/push_swap.c \
 				mandatory/operations/rotate.c mandatory/operations/swap.c \
 				mandatory/operations/reverse_rotate.c \
 				mandatory/sorting.c mandatory/sort_algo.c
-SRCS_BONUS  =   $(GNL_SRCS) bonus/checker_bonus.c
+SRCS_BONUS  =   $(GNL_SRCS) bonus/checker_bonus.c bonus/init_stack_bonus.c bonus/utils_bonus.c bonus/operations/push_bonus.c bonus/operations/reverse_rotate_bonus.c bonus/operations/rotate_bonus.c bonus/operations/swap_bonus.c
 
 OBJS        =   $(SRCS:.c=.o)
 OBJS_BONUS        =   $(SRCS_BONUS:.c=.o)

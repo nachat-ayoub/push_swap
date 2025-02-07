@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   init_stack_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:15:28 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/06 14:23:01 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/07 19:44:21 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 t_node	*find_last(t_node *stack)
 {
@@ -40,7 +40,6 @@ static int	append_node(t_node **stack, int nbr)
 	{
 		last_node = find_last(*stack);
 		last_node->next = node;
-		node->prev = last_node;
 	}
 	return (1);
 }
@@ -65,7 +64,7 @@ int	init_stack(t_node **a, char **args)
 			if (nb == LONG_MAX)
 				return (free_2d_arr(nums), free_stack(a), 0);
 			if (!append_node(a, (int)nb))
-				free_stack(a);
+				return (free_2d_arr(nums), free_stack(a), 0);
 			j++;
 		}
 		free_2d_arr(nums);

@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:43:34 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/06 14:31:24 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/07 18:04:01 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	ra(t_node **a, int log_instr)
 	second = (*a)->next;
 	last = find_last(*a);
 	first->next = NULL;
-	first->prev = last;
-	second->prev = NULL;
 	last->next = first;
 	*a = second;
 	if (log_instr)
@@ -44,8 +42,6 @@ void	rb(t_node **b, int log_instr)
 	second = (*b)->next;
 	last = find_last(*b);
 	first->next = NULL;
-	first->prev = last;
-	second->prev = NULL;
 	last->next = first;
 	*b = second;
 	if (log_instr)

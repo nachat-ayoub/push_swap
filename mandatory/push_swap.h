@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:27:04 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/06 14:59:00 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/07 18:06:10 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,7 @@ struct s_node
 {
 	int		nbr;
 	int		index;
-	int		push_cost;
-	int		above_median;
-	int		cheapest;
-	t_node	*target_node;
 	t_node	*next;
-	t_node	*prev;
 };
 
 void	exit_program(void);
@@ -59,13 +54,12 @@ void	sort_five(t_node **a, t_node **b);
 void	sort_algo(t_node **a, t_node **b);
 int		get_max_pos(t_node *stack);
 
-// Operations:
+void	pa(t_node **a, t_node **b);
+void	pb(t_node **a, t_node **b);
+
 void	sa(t_node **a, int log_instr);
 void	sb(t_node **b, int log_instr);
 void	ss(t_node **a, t_node **b);
-
-void	pa(t_node **a, t_node **b);
-void	pb(t_node **a, t_node **b);
 
 void	ra(t_node **a, int log_instr);
 void	rb(t_node **b, int log_instr);
@@ -74,6 +68,5 @@ void	rr(t_node **a, t_node **b);
 void	rra(t_node **a, int log_instr);
 void	rrb(t_node **b, int log_instr);
 void	rrr(t_node **a, t_node **b);
-// void	print_stacks(t_node *a, t_node *b);
 
 #endif
