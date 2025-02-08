@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:49:57 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/06 14:30:22 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/08 13:49:39 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	lstsize(t_node *lst)
 	curr = lst;
 	while (curr != NULL)
 	{
-		curr = (*curr).next;
+		curr = curr->next;
 		i++;
 	}
 	return (i);

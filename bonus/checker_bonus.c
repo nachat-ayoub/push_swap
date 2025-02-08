@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:29:13 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/08 11:39:13 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/08 14:29:59 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	exit_program(void)
 {
 	ft_putstr_fd("Error\n", 2);
 }
+
 static int	is_sorted(t_node **stack)
 {
 	t_node	*curr;
@@ -30,7 +31,7 @@ static int	is_sorted(t_node **stack)
 	return (1);
 }
 
-static 	int do_action(char *instr, t_node **a, t_node **b)
+static int	do_action(char *instr, t_node **a, t_node **b)
 {
 	if (ft_strncmp(instr, "sa", 4) == 0)
 		return (sa(a), 0);
@@ -57,7 +58,7 @@ static 	int do_action(char *instr, t_node **a, t_node **b)
 	return (exit_program(), 1);
 }
 
-char	*read_instr()
+static char	*read_instr(void)
 {
 	char	*instr;
 	int		nl_idx;
@@ -77,9 +78,7 @@ int	main(int ac, char **av)
 	t_node	*a;
 	t_node	*b;
 	char	*instr;
-	int		invalid;
 
-	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (exit_program(), 1);
 	if (!init_stack(&a, av + 1) || has_duplicated(a))
@@ -89,16 +88,15 @@ int	main(int ac, char **av)
 		instr = read_instr();
 		while (instr)
 		{
-			invalid = do_action(instr, &a, &b);
+			if (do_action(instr, &a, &b))
+				return (free(instr), free_stack(&a), free_stack(&b), 1);
 			free(instr);
-			if (invalid)
-				return (free_stack(&a), free_stack(&b), 1);
 			instr = read_instr();
 		}
 	}
-	free_stack(&a);
-	free_stack(&b);
-	if (!is_sorted(&a))
-		return (ft_printf("KO\n"), 1);
-	ft_printf("OK\n");
+	if (is_sorted(&a) && lstsize(b) == 0)
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
+	return (free_stack(&a), free_stack(&b), 0);
 }

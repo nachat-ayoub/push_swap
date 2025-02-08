@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:27:04 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/07 18:06:10 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/08 14:23:21 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,6 @@
 # include "../lib/ft_printf/ft_printf.h"
 # include "../lib/get_next_line/get_next_line.h"
 # include <limits.h>
-# include <stdio.h>
-
-# define RED   "\033[1;31m"
-# define GREEN "\033[1;32m"
-# define YELLOW "\033[1;33m"
-# define DIM_YELLOW "\033[38;5;136m"
-# define DIM_RED "\033[38;5;124m"
-# define BLUE  "\033[1;34m"
-# define MAGENTA "\033[1;35m"
-# define PURPLE  "\033[38;5;129m"
-# define RESET "\033[0m"
 
 typedef struct s_node	t_node;
 

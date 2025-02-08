@@ -6,11 +6,26 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:15:28 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/08 11:39:13 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/08 14:00:37 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
+
+int	lstsize(t_node *lst)
+{
+	int		i;
+	t_node	*curr;
+
+	i = 0;
+	curr = lst;
+	while (curr != NULL)
+	{
+		i++;
+		curr = curr->next;
+	}
+	return (i);
+}
 
 t_node	*find_last(t_node *stack)
 {
