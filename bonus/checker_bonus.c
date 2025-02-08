@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:29:13 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/08 15:02:29 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/08 15:26:15 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,9 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
+	if (ac == 1)
+		return (0);
+	else if (ac == 2 && !av[1][0])
 		return (exit_program(), 1);
 	if (!init_stack(&a, av + 1) || has_duplicated(a))
 		return (free_stack(&a), exit_program(), 1);
