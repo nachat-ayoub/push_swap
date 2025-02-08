@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:29:13 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/08 14:58:23 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/08 15:05:00 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ int	main(int ac, char **av)
 	if (!is_sorted(&a))
 	{
 		size = lstsize(a);
-		if (size == 3)
+		if (size == 2)
+			sa(&a, 1);
+		else if (size == 3)
 			sort_three(&a);
 		else if (size == 4)
 			sort_four(&a, &b);
