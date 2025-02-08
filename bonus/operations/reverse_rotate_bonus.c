@@ -6,13 +6,13 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:55:29 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/07 18:16:27 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/08 11:14:21 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker_bonus.h"
 
-void	rra(t_node **a, int log_instr)
+void	rra(t_node **a)
 {
 	t_node	*first;
 	t_node	*before_last;
@@ -28,11 +28,9 @@ void	rra(t_node **a, int log_instr)
 	last->next = first;
 	before_last->next = NULL;
 	*a = last;
-	if (log_instr)
-		ft_printf("rra\n");
 }
 
-void	rrb(t_node **b, int log_instr)
+void	rrb(t_node **b)
 {
 	t_node	*first;
 	t_node	*before_last;
@@ -48,8 +46,6 @@ void	rrb(t_node **b, int log_instr)
 	last->next = first;
 	before_last->next = NULL;
 	*b = last;
-	if (log_instr)
-		ft_printf("rrb\n");
 }
 
 void	rrr(t_node **a, t_node **b)
@@ -58,7 +54,6 @@ void	rrr(t_node **a, t_node **b)
 		return ;
 	if (!b || !*b || !(*b)->next)
 		return ;
-	rra(a, 0);
-	rrb(b, 0);
-	ft_printf("rrr\n");
+	rra(a);
+	rrb(b);
 }

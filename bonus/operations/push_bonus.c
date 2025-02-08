@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 11:23:35 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/07 18:16:27 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/08 11:14:00 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	pa(t_node **a, t_node **b)
 	*b = (*b)->next;
 	bhead->next = *a;
 	*a = bhead;
-	ft_printf("pa\n");
 }
 
 void	pb(t_node **a, t_node **b)
@@ -35,5 +34,4 @@ void	pb(t_node **a, t_node **b)
 	*a = (*a)->next;
 	ahead->next = *b;
 	*b = ahead;
-	ft_printf("pb\n");
 }

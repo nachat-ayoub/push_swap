@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:15:37 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/07 16:14:43 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/08 11:37:12 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	is_valid_nb(char *str)
 	if (!str)
 		return (0);
 	i = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ' || str[i] == '\t')
+	while (str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -66,7 +66,7 @@ long	ft_atoi_long(char *str)
 	i = 0;
 	s = 1;
 	nb = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ' || str[i] == '\t')
+	while (str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{

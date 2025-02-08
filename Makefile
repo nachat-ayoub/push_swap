@@ -6,10 +6,9 @@
 #    By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 18:26:53 by anachat           #+#    #+#              #
-#    Updated: 2025/02/07 20:34:08 by anachat          ###   ########.fr        #
+#    Updated: 2025/02/08 10:27:44 by anachat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME        =   push_swap
 NAME_BONUS  =   checker

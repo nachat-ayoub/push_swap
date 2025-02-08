@@ -6,13 +6,13 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:43:34 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/07 18:16:27 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/08 11:14:38 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker_bonus.h"
 
-void	ra(t_node **a, int log_instr)
+void	ra(t_node **a)
 {
 	t_node	*first;
 	t_node	*second;
@@ -26,11 +26,9 @@ void	ra(t_node **a, int log_instr)
 	first->next = NULL;
 	last->next = first;
 	*a = second;
-	if (log_instr)
-		ft_printf("ra\n");
 }
 
-void	rb(t_node **b, int log_instr)
+void	rb(t_node **b)
 {
 	t_node	*first;
 	t_node	*second;
@@ -44,8 +42,6 @@ void	rb(t_node **b, int log_instr)
 	first->next = NULL;
 	last->next = first;
 	*b = second;
-	if (log_instr)
-		ft_printf("rb\n");
 }
 
 void	rr(t_node **a, t_node **b)
@@ -54,7 +50,6 @@ void	rr(t_node **a, t_node **b)
 		return ;
 	if (!b || !*b || !(*b)->next)
 		return ;
-	ra(a, 0);
-	rb(b, 0);
-	ft_printf("rr\n");
+	ra(a);
+	rb(b);
 }

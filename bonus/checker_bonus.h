@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:27:04 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/07 19:45:18 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/08 11:27:33 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,20 @@ long	ft_atoi_long(char *str);
 void	free_2d_arr(char **arr);
 void	free_stack(t_node **stack);
 int		has_duplicated(t_node *stack);
-void	ft_index(t_node *s);
-int		lstsize(t_node *lst);
-int		get_pos(t_node *stack, int index);
-void	sort_three(t_node **stack);
-void	sort_four(t_node **a, t_node **b);
-void	sort_five(t_node **a, t_node **b);
-void	sort_algo(t_node **a, t_node **b);
-int		get_max_pos(t_node *stack);
 
-void	sa(t_node **a, int log_instr);
-void	sb(t_node **b, int log_instr);
+void	sa(t_node **a);
+void	sb(t_node **b);
 void	ss(t_node **a, t_node **b);
 
 void	pa(t_node **a, t_node **b);
 void	pb(t_node **a, t_node **b);
 
-void	ra(t_node **a, int log_instr);
-void	rb(t_node **b, int log_instr);
+void	ra(t_node **a);
+void	rb(t_node **b);
 void	rr(t_node **a, t_node **b);
 
-void	rra(t_node **a, int log_instr);
-void	rrb(t_node **b, int log_instr);
+void	rra(t_node **a);
+void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
 
 #endif
