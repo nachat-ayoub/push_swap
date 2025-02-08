@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:29:13 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/08 14:29:59 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/08 15:02:29 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,20 +79,19 @@ int	main(int ac, char **av)
 	t_node	*b;
 	char	*instr;
 
+	a = NULL;
+	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (exit_program(), 1);
 	if (!init_stack(&a, av + 1) || has_duplicated(a))
 		return (free_stack(&a), exit_program(), 1);
-	if (!is_sorted(&a))
+	instr = read_instr();
+	while (instr)
 	{
+		if (do_action(instr, &a, &b))
+			return (free(instr), free_stack(&a), free_stack(&b), 1);
+		free(instr);
 		instr = read_instr();
-		while (instr)
-		{
-			if (do_action(instr, &a, &b))
-				return (free(instr), free_stack(&a), free_stack(&b), 1);
-			free(instr);
-			instr = read_instr();
-		}
 	}
 	if (is_sorted(&a) && lstsize(b) == 0)
 		ft_printf("OK\n");
