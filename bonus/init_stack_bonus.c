@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:15:28 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/08 14:00:37 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/09 15:19:44 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ static int	append_node(t_node **stack, int nbr)
 	if (!stack)
 		return (0);
 	node = malloc(sizeof(t_node));
-	ft_memset(node, 0, sizeof(t_node));
 	if (!node)
 		return (0);
+	ft_memset(node, 0, sizeof(t_node));
 	node->nbr = nbr;
 	if (!*stack)
 		*stack = node;

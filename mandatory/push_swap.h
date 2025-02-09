@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:27:04 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/08 14:23:21 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/09 15:17:04 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "../lib/ft_printf/ft_printf.h"
 # include "../lib/get_next_line/get_next_line.h"
 # include <limits.h>
+
+# define malloc(s) NULL
 
 typedef struct s_node	t_node;
 

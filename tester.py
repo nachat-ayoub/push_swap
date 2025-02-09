@@ -16,8 +16,17 @@ INT_MAX = 2147483647
 # INT_MIN = 0
 # INT_MAX = 1000
 
-def generate_unique_numbers(size):
-	return random.sample(range(INT_MIN, INT_MAX), size)
+def generate_unique_numbers(size, max_attempts=100):
+	# Generate a random list of unique numbers
+	numbers = random.sample(range(INT_MIN, INT_MAX), size)
+
+	while True:
+		# Shuffle the numbers randomly
+		random.shuffle(numbers)
+
+		# Check if the list is neither strictly sorted (ascending) nor strictly sorted (descending)
+		if numbers != sorted(numbers):
+			return numbers  # If the list is not sorted in either direction, return the list
 
 def run_push_swap(args):
 	"""Run push_swap with the given numbers and return the output."""
