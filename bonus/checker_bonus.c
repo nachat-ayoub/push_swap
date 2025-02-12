@@ -6,16 +6,11 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:29:13 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/08 15:26:15 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/12 11:31:52 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
-
-static void	exit_program(void)
-{
-	ft_putstr_fd("Error\n", 2);
-}
 
 static int	is_sorted(t_node **stack)
 {
@@ -29,33 +24,6 @@ static int	is_sorted(t_node **stack)
 		curr = curr->next;
 	}
 	return (1);
-}
-
-static int	do_action(char *instr, t_node **a, t_node **b)
-{
-	if (ft_strncmp(instr, "sa", 4) == 0)
-		return (sa(a), 0);
-	if (ft_strncmp(instr, "sb", 4) == 0)
-		return (sb(b), 0);
-	if (ft_strncmp(instr, "ss", 4) == 0)
-		return (ss(a, b), 0);
-	if (ft_strncmp(instr, "pb", 4) == 0)
-		return (pb(a, b), 0);
-	if (ft_strncmp(instr, "pa", 4) == 0)
-		return (pa(a, b), 0);
-	if (ft_strncmp(instr, "ra", 4) == 0)
-		return (ra(a), 0);
-	if (ft_strncmp(instr, "rb", 4) == 0)
-		return (rb(b), 0);
-	if (ft_strncmp(instr, "rr", 4) == 0)
-		return (rr(a, b), 0);
-	if (ft_strncmp(instr, "rra", 4) == 0)
-		return (rra(a), 0);
-	if (ft_strncmp(instr, "rrb", 4) == 0)
-		return (rrb(b), 0);
-	if (ft_strncmp(instr, "rrr", 4) == 0)
-		return (rrr(a, b), 0);
-	return (exit_program(), 1);
 }
 
 static char	*read_instr(void)
@@ -73,11 +41,75 @@ static char	*read_instr(void)
 	return (instr);
 }
 
+int	add_line(char ***ops, char *line, int size)
+{
+	char	**new_ops;
+	int		i;
+
+	size += 2;
+	new_ops = malloc(sizeof(char *) * size);
+	if (!new_ops)
+		return (free(line), 0);
+	i = 0;
+	while ((*ops)[i] != NULL)
+	{
+		new_ops[i] = (*ops)[i];
+		i++;
+	}
+	new_ops[i] = line;
+	new_ops[i + 1] = NULL;
+	free(*ops);
+	*ops = new_ops;
+	return (1);
+}
+
+char **read_ops(void)
+{
+	char	**ops;
+	char	*instr;
+	int		count;
+
+	count = 1;
+	ops = malloc(sizeof(char *) * (count + 1));
+	if (!ops)
+		return (NULL);
+	instr = read_instr();
+	if (!instr)
+		return (free(ops), NULL);
+	while (instr)
+	{
+		if (!is_valid_instr(instr))
+			return (free(instr), free_2d_arr(ops), NULL); // 82
+		if (!add_line(&ops, instr, count))
+			return (free(instr), free_2d_arr(ops), NULL);
+		count++;
+		instr = read_instr();
+	}
+	return (ops);
+}
+
+int exec_operations(t_node **a, t_node **b)
+{
+	char	**ops;
+	int		i;
+
+	i = 0;
+	ops = read_ops(); // 97
+	if (!ops)
+		return (1);
+	while (ops[i])
+	{
+		do_action(ops[i], a, b);
+		i++;
+	}
+	free_2d_arr(ops);
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
 	t_node	*a;
 	t_node	*b;
-	char	*instr;
 
 	a = NULL;
 	b = NULL;
@@ -87,14 +119,8 @@ int	main(int ac, char **av)
 		return (exit_program(), 1);
 	if (!init_stack(&a, av + 1) || has_duplicated(a))
 		return (free_stack(&a), exit_program(), 1);
-	instr = read_instr();
-	while (instr)
-	{
-		if (do_action(instr, &a, &b))
-			return (free(instr), free_stack(&a), free_stack(&b), 1);
-		free(instr);
-		instr = read_instr();
-	}
+	if (exec_operations(&a, &b)) // 122
+		return (free_stack(&a), free_stack(&b), 0);
 	if (is_sorted(&a) && lstsize(b) == 0)
 		ft_printf("OK\n");
 	else

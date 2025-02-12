@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:15:37 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/08 11:36:22 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/12 11:35:31 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,11 @@ void	free_2d_arr(char **arr)
 	i = 0;
 	while (arr[i])
 	{
-		free(arr[i]);
-		arr[i] = NULL;
+		if (arr[i])
+		{
+			free(arr[i]); // 39
+			arr[i] = NULL;
+		}
 		i++;
 	}
 	free(arr);

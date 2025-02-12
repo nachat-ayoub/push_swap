@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:27:04 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/08 14:26:07 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/09 18:09:40 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ void	free_2d_arr(char **arr);
 void	free_stack(t_node **stack);
 int		has_duplicated(t_node *stack);
 int		lstsize(t_node *lst);
+int		is_valid_instr(char *str);
+void	exit_program(void);
+void	do_action(char *instr, t_node **a, t_node **b);
 
 void	sa(t_node **a);
 void	sb(t_node **b);

@@ -1,0 +1,22 @@
+Error
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==81042==ERROR: AddressSanitizer: SEGV on unknown address (pc 0x00010116bb98 bp 0x7ffeeeab3b70 sp 0x7ffeeeab3b40 T0)
+==81042==The signal is caused by a READ memory access.
+==81042==Hint: this fault was caused by a dereference of a high value address (see register values below).  Dissassemble the provided pc to learn which register was used.
+    #0 0x10116bb98 in __asan::Allocator::Deallocate(void*, unsigned long, unsigned long, __sanitizer::BufferedStackTrace*, __asan::AllocType)+0x48 (libclang_rt.asan_osx_dynamic.dylib:x86_64h+0x6b98)
+    #1 0x1011ae32a in wrap_free+0x10a (libclang_rt.asan_osx_dynamic.dylib:x86_64h+0x4932a)
+    #2 0x10114f042 in free_2d_arr utils_bonus.c:39
+    #3 0x10114df43 in read_ops checker_bonus.c:82
+    #4 0x10114e1bb in exec_operations checker_bonus.c:97
+    #5 0x10114e56b in main checker_bonus.c:122
+    #6 0x7fff68d07cc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
+
+==81042==Register values:
+rax = 0x0000000000000002  rbx = 0xbebebebebebebebe  rcx = 0x0000000000000003  rdx = 0x0000000000000000  
+rdi = 0xbebebebebebebebe  rsi = 0xbebebebebebebebe  rbp = 0x00007ffeeeab3b70  rsp = 0x00007ffeeeab3b40  
+ r8 = 0x00007ffeeeab3b80   r9 = 0x0000000000000001  r10 = 0xffffffffffffffff  r11 = 0x00000fffffffffff  
+r12 = 0x0000000000000001  r13 = 0x0000000000000000  r14 = 0x00007ffeeeab3b80  r15 = 0x0000000101209d40  
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (libclang_rt.asan_osx_dynamic.dylib:x86_64h+0x6b98) in __asan::Allocator::Deallocate(void*, unsigned long, unsigned long, __sanitizer::BufferedStackTrace*, __asan::AllocType)+0x48
+==81042==ABORTING
