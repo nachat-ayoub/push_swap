@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:29:13 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/12 11:31:52 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/12 11:59:55 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,17 @@ int	add_line(char ***ops, char *line, int size)
 	char	**new_ops;
 	int		i;
 
-	size += 2;
-	new_ops = malloc(sizeof(char *) * size);
+	new_ops = malloc(sizeof(char *) * (size + 2));
 	if (!new_ops)
 		return (free(line), 0);
 	i = 0;
-	while ((*ops)[i] != NULL)
+	while (i < size)
 	{
 		new_ops[i] = (*ops)[i];
 		i++;
 	}
-	new_ops[i] = line;
-	new_ops[i + 1] = NULL;
+	new_ops[size] = line;
+	new_ops[size + 1] = NULL;
 	free(*ops);
 	*ops = new_ops;
 	return (1);

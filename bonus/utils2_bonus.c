@@ -6,7 +6,7 @@
 /*   By: anachat <anachat@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:26:27 by anachat           #+#    #+#             */
-/*   Updated: 2025/02/09 17:52:48 by anachat          ###   ########.fr       */
+/*   Updated: 2025/02/12 12:02:46 by anachat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	is_valid_instr(char *str)
 
 void	do_action(char *instr, t_node **a, t_node **b)
 {
+	if (!instr)
+		return ;
 	if (ft_strncmp(instr, "sa", 4) == 0)
 		sa(a);
 	else if (ft_strncmp(instr, "sb", 4) == 0)
